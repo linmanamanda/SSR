@@ -1,0 +1,34 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "SSR",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linmanamanda/SSR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linmanamanda/SSR/issues"
+  },
+  "homepage": "https://github.com/linmanamanda/SSR#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^2.0.2",
+    "css-loader": "^2.1.1",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1",
+    "webpack-merge": "^4.2.1"
+  }
+}
