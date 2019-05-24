@@ -1,27 +1,75 @@
 <template>
-    <section class="rel-app">
-        <input 
-            type="text"
-            class="add-input"
-            autofocus="autofocus"
-            placeholder="What's to do next? "
-            @keyup.enter="addTodo"
-        >
-    </section>
+  <section class="rel-app">
+    <input 
+        type="text"
+        class="add-input"
+        autofocus="autofocus"
+        placeholder="接下来打算做什么? "
+        @keyup.enter="addTodo"
+    >
+    <Item 
+        v-for="todo in filterTodo" 
+        :todo="todo" 
+        :key="todo.id" 
+        @delete="deleteTodo"
+    />
+    <Tabs 
+      :todos="todos" 
+      :filter="filter"
+      @toggle="toggleTabs"
+      @clearAll="clearAll"
+    />
+  </section>
 </template>
 <script>
+import Item from './item.vue';
+import Tabs from './tabs.vue'
 
+
+let id = 0;
 export default {
     components: {
+        Item,
+        Tabs,
     },
     data() {
         return {
-
+            todos: [],
+            filter: 'all',
         }
     },
+    computed: {
+      filterTodo() {
+        if (this.filter === 'all') {
+          return this.todos
+        } else {
+          const isCompleted = this.filter === 'completed' ? true : false;
+          return this.todos.filter(todo => { return todo.completed === isCompleted });
+        }
+      },
+    },
     methods: {
-        addTodo() {
+        addTodo(e) {
+            let value = e.target.value.trim();
 
+            if (value) {
+                this.todos.unshift({
+                    content: value,
+                    completed: false,
+                    id: id++,
+                });
+
+                e.target.value = '';
+            }
+        },
+        deleteTodo(id) {
+            this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1);
+        },
+        toggleTabs(state) {
+          this.filter = state;
+        },
+        clearAll() {
+          this.todos = this.todos.filter(todo => { return !todo.completed });
         },
     },
 }
@@ -45,6 +93,7 @@ export default {
   box-shadow inset 0 -1px 5px 0 rgba(0, 0, 0, .5)
   box-sizing border-box
   padding 16px 16px 16px 60px
+  margin-bottom 16px
 </style>
 
 

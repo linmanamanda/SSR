@@ -8,17 +8,19 @@ module.exports = {
     mode: 'development',
     entry: path.join(__dirname, 'src/index.js'),
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: path.join(__dirname, 'dist')
     },
     devtool: '#cheap-module-eval-source-map',
     devServer: {
         contentBase: './dist',
         host: '0.0.0.0',
+        useLocalIp: true,
         port: 8000,
         overlay: {
             errors: true,
         },
+        inline: true,
         hot: true,
     },
     module: {
