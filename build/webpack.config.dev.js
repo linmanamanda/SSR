@@ -19,7 +19,6 @@ module.exports = webpackMerge(baseConfig, {
     overlay: {
       errors: true,
     },
-    inline: true,
     hot: true,
   },
   module: {
@@ -27,7 +26,7 @@ module.exports = webpackMerge(baseConfig, {
       {
         test: /\.styl(us)?$/,
         use: [
-          'style-loader',
+          'vue-style-loader',
           'css-loader',
           {
             loader: 'postcss-loader',
