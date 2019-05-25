@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CleanWebpackPluign = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniExtractCSSPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
@@ -36,7 +37,8 @@ module.exports = {
             {
                 test: /\.styl(us)?$/,
                 use: [
-                    'style-loader',
+                    // 'style-loader',
+                    MiniExtractCSSPlugin.loader,
                     'css-loader',
                     { 
                         loader: 'postcss-loader',
@@ -64,5 +66,9 @@ module.exports = {
         new CleanWebpackPluign(),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin(),
+        new MiniExtractCSSPlugin({
+            name: '[name].css',
+            MiniCssExtractPlugin: '[id].css'
+        }),
     ]
 }
