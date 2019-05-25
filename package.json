@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=production --config webpack.config.js",
-    "dev": "webpack-dev-server --config webpack.config.js"
+    "build": "webpack --config build/webpack.config.prod.js",
+    "dev": "webpack-dev-server --config build/webpack.config.dev.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
@@ -21,12 +26,6 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "url-loader": "^1.1.2",
-    "vue": "^2.6.10",
-    "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.32.1"
-  },
-  "devDependencies": {
     "@babel/core": "^7.4.5",
     "autoprefixer": "^9.5.1",
     "babel-core": "^6.26.3",
@@ -35,6 +34,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.6.0",
     "postcss-loader": "^3.0.0",
+    "webpack": "^4.32.1",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1",
     "webpack-merge": "^4.2.1"
