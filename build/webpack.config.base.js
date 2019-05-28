@@ -34,7 +34,9 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, '../build/template.html')
+    }),
     new CleanWebpackPluign()
   ]
 }
