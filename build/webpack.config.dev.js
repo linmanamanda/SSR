@@ -1,7 +1,7 @@
-const path = require('path');
-const baseConfig = require('./webpack.config.base');
-const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
+const path = require('path')
+const baseConfig = require('./webpack.config.base')
+const webpack = require('webpack')
+const webpackMerge = require('webpack-merge')
 
 module.exports = webpackMerge(baseConfig, {
   mode: 'development',
@@ -17,12 +17,18 @@ module.exports = webpackMerge(baseConfig, {
     useLocalIp: true,
     port: 8000,
     overlay: {
-      errors: true,
+      errors: true
     },
-    hot: true,
+    hot: true
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        exclude: /node_modules/
+      },
       {
         test: /\.styl(us)?$/,
         use: [
@@ -31,15 +37,15 @@ module.exports = webpackMerge(baseConfig, {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
+              sourceMap: true
             }
           },
           'stylus-loader'
         ]
-      },
+      }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
-});
+})

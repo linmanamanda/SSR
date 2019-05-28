@@ -1,8 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-const CleanWebpackPluign = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path')
+const CleanWebpackPluign = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   mode: 'development',
@@ -26,9 +25,9 @@ module.exports = {
         use: [{
           loader: 'url-loader',
           options: {
-            limit: 1024,
+            limit: 1024
             // name: '/resourse/[path]/[name].[ext]'
-          },
+          }
         }]
       }
     ]
@@ -36,6 +35,6 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin(),
-    new CleanWebpackPluign(),
+    new CleanWebpackPluign()
   ]
 }
