@@ -1,11 +1,11 @@
-import Vue from 'vue';
-import App from './app.vue';
+import Vue from 'vue'
+import App from './app.vue'
 
-import './assets/stylus/global.styl';
+import './assets/stylus/global.styl'
 
-const root = document.createElement('div');
-document.body.append(root);
+const root = document.createElement('div')
+document.body.append(root)
 
 new Vue({
-    render: (h) => h(App)
+  render: (h) => h(App)
 }).$mount(root)

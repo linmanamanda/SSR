@@ -2,14 +2,17 @@
   <div class="helper">
     <span class="left">{{ left }} items left</span>
     <span class="tabs">
-      <span 
-        v-for="state in states" 
+      <span
+        v-for="state in states"
         :key="state"
         :class="[state, filter === state ? 'actived' : '']"
         @click="toggleFilter(state)"
       >{{ state }}</span>
     </span>
-    <span class="clear" @click="clearAll">Clear All completed</span>
+    <span
+      class="clear"
+      @click="clearAll"
+    >Clear All completed</span>
   </div>
 </template>
 <script>
@@ -24,21 +27,21 @@ export default {
       required: true
     }
   },
-  data(){
+  data () {
     return {
       states: ['all', 'active', 'completed']
     }
   },
   computed: {
-      left() {
-          return this.todos.filter(todo => !todo.completed).length;
-      },
+    left () {
+      return this.todos.filter(todo => !todo.completed).length
+    }
   },
   methods: {
-    toggleFilter(state){
+    toggleFilter (state) {
       this.$emit('toggle', state)
     },
-    clearAll(){
+    clearAll () {
       this.$emit('clearAll')
     }
   }
@@ -66,13 +69,13 @@ export default {
 .left
   text-align left
 .clear
-  text-align right 
+  text-align right
   cursor pointer
 .tabs
   width 200px
   display flex
   justify-content space-around
-  * 
+  *
     display inline-block
     padding 0 10px
     cursor pointer
