@@ -1,4 +1,4 @@
-import '../assets/stylus/footer.styl'
+import styles from '../assets/stylus/footer.styl'
 
 export default {
   data () {
@@ -8,7 +8,7 @@ export default {
   },
   render () {
     return (
-      <div id="footer">
+      <div className={styles.footer}>
         <span>Written by {this.author}</span>
       </div>
     )

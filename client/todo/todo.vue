@@ -1,8 +1,8 @@
 <template>
-  <section class="rel-app">
+  <section :class="$style.relApp">
     <input
       type="text"
-      class="add-input"
+      :class="$style.addInput"
       autofocus="autofocus"
       placeholder="接下来打算做什么? "
       @keyup.enter="addTodo"
@@ -73,7 +73,7 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus" module>
 .rel-app
   width 600px
   margin 0 auto
