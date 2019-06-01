@@ -47,17 +47,6 @@ export default {
       }
     }
   },
-  beforeRouteEnter (to, from, next) {
-    console.log('before Router Enter')
-    next()
-  },
-  beforeRouteUpdate (to, from, next) {
-    console.log('before Router Update')
-    next()
-  },
-  beforeRouteLeave (to, from, next) {
-
-  },
   methods: {
     addTodo (e) {
       let value = e.target.value.trim()
