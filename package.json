@@ -20,7 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "eslint": "^5.16.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

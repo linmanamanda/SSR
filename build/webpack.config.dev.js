@@ -19,7 +19,10 @@ module.exports = webpackMerge(baseConfig, {
     overlay: {
       errors: true
     },
-    hot: true
+    hot: true,
+    // historyApiFallback: {
+    //   index: './template.html'
+    // }
   },
   module: {
     rules: [
